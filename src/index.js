@@ -105,7 +105,7 @@ async function handleRequest(request) {
 		return new Response("Not Found.", { status: 404 });
 	}
 
-	if (!pathname.endsWith("/status")) {
+	if (pathname.endsWith("/status")) {
 		return new Response("Worker is up and Running.", { status: 200 });
 	}
 
