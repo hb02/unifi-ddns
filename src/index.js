@@ -100,13 +100,13 @@ async function handleRequest(request) {
 	if (pathname === "/favicon.ico" || pathname === "/robots.txt") {
 		return new Response(null, { status: 204 });
 	}
-
-	if (!pathname.endsWith("/update")) {
-		return new Response("Not Found.", { status: 404 });
-	}
-
+	
 	if (pathname.endsWith("/status")) {
 		return new Response("Worker is up and Running.", { status: 200 });
+	}
+	
+	if (!pathname.endsWith("/update")) {
+		return new Response("Not Found.", { status: 404 });
 	}
 
 	if (!request.headers.has("Authorization") && !request.url.includes("token=")) {
